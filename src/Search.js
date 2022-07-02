@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 
 // https://pokeapi.co/api/v2/pokemon
 
-export const Search = () => {
+export const Search = (props) => {
     const [data, setData] = useState([])
     useEffect(() => {
-        axios.get(`https://pokeapi.co/api/v2/pokemon?limit=5`).then((res) => {
+        axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${props.type}`).then((res) => {
             setData(res.data.results)
         })
     }, [])
